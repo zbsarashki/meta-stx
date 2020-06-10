@@ -63,7 +63,7 @@ This layer depends on:
 	branch: warrior
 	revision: HEAD
 
-	URI: https://git.yoctoproject.org/git/meta-dpdk
+	URI: https://git.yoctoproject.org/meta-dpdk
 	layer: dpdk
 	branch: warrior
 	revision: HEAD
