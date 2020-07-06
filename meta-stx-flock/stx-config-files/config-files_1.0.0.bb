@@ -357,8 +357,18 @@ pkg_postinst_ontarget_logrotate-config() {
 	install -m 644 ${SRCPATH}/logrotate-cron.d ${sysconfdir}/cron.d/logrotate
 	install -m 644 ${SRCPATH}/logrotate.conf ${datadir}/starlingx/logrotate.conf
 
-	cp -f ${datadir}/starlingx/logrotate.conf ${sysconfdir}/logrotate.conf 
-	chmod 644 ${sysconfdir}/logrotate.conf
+# TODO: This needs to get fixed
+#	cp -f ${datadir}/starlingx/logrotate.conf ${sysconfdir}/logrotate.conf 
+#	chmod 644 ${sysconfdir}/logrotate.conf
+#	cat << EOF  >  ${sysconfdir}/logrotate.d/wtmp 
+#/var/log/wtmp {
+#    monthly
+#    create 0664 root utmp
+#        minsize 1M
+#    rotate 1
+#}
+#EOF
+
 	mv ${sysconfdir}/cron.daily/logrotate ${sysconfdir}/logrotate.cron
 	chmod 700 ${sysconfdir}/logrotate.cron
 }
